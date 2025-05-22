@@ -46,7 +46,7 @@ Welcome to the Riwi Store!. What do you want to do?. :
                 else:
                     update_price(product_to_find, new_price) # Call the function to update the price.
             except ValueError:
-                print("The price must be a valid number.") # If the entered price is not valid, an error is displayed.
+                    print("The price must be a valid number.") # If the entered price is not valid, an error is displayed.
  #------------------------------------------------------------------------------------------------------------------------------------------------------------                     
         elif option == "4": # Remove a product from the list.
             name=input("Enter the name of the product you want to delete: ").strip()
@@ -118,9 +118,9 @@ def update_price(product_to_find, new_price):
             if product["name"].lower() == product_to_find.lower():
                 product["price"] = new_price
                 print("Price updated correctly.") #If the product is found and exchanged for a valid price
+                return
         else:
             print("That product dont exist in the inventory")
-        return
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Function to remove a product from the list.
 def remove_products(name):
@@ -129,7 +129,8 @@ def remove_products(name):
             inventory.pop(i) # Remove the product from the list.
             print("The product has been successfully removed. ")
             return  # If the product is found, it deletes it and exits the function.
-    print("The product has not been found. ") # If not found, display a message.
+    else:
+        print("The product has not been found. ") # If not found, display a message.
  #-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Function to calculate and display the total purchase (price * quantity).
 def show_total():
